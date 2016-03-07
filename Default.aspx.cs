@@ -34,4 +34,23 @@ public partial class _Default : System.Web.UI.Page
 
         txtInput.InnerText = languageToDetect;
     }
+
+    // call the function for translating the user input
+    protected void btnTranslate_Click(object sender, EventArgs e)
+    {
+        string textToTranslate = txtInput.InnerText;
+        string fromLanguage = ddlTranslateFrom.SelectedValue;
+        string toLanguage = ddlTranslateTo.SelectedValue;
+
+        try
+        {
+            string translation = translate.TranslateLanguage(textToTranslate, fromLanguage, toLanguage);
+            txtOutput.InnerText = translation;
+        }
+        catch (Exception er)
+        {
+            string error = er.ToString();
+            lblError.Text = error;
+        }
+    }
 }
