@@ -13,6 +13,8 @@ public partial class _Default : System.Web.UI.Page
         GetData fillList = new GetData();
         if (!Page.IsPostBack)
             fillList.FillLanguageList(ddlTranslateFrom, ddlTranslateTo);
+
+        lblError.Text = String.Empty;
     }
 
     GetTranslation translate = new GetTranslation();
