@@ -6,15 +6,26 @@ using System.Web.UI.WebControls;
 
 public class GetTranslation
 {
+    GetAccessToken auth = new GetAccessToken();
+    TranslatorService.LanguageServiceClient client = new TranslatorService.LanguageServiceClient();
+
     // detects the language from the user input
     public void DetectLanguage(string toDetect, DropDownList fromLanguage)
     {
-        GetAccessToken auth = new GetAccessToken();
         string appId = auth.GetAccessTokenString();
-        TranslatorService.LanguageServiceClient client = new TranslatorService.LanguageServiceClient();
 
-        string languageToDetect = toDetect;
-        string detectedLanguage = client.Detect(appId, languageToDetect);
+        string detectedLanguage = client.Detect(appId, toDetect);
+
         fromLanguage.SelectedValue = detectedLanguage;
+    }
+
+    // translates the language from the user input
+    public string TranslateLanguage(string userInput, string fromLanguage, string toLanguage)
+    {
+        string appId = auth.GetAccessTokenString();
+
+        string translatedLanguage = client.Translate(appId, userInput, fromLanguage, toLanguage, "text/plain", "", "");
+
+        return translatedLanguage;
     }
 }
