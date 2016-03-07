@@ -5,12 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Microsoft Translator Client</title>
-    <style type="text/css">
-        #txtInput {
-            height: 200px;
-            width: 500px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
