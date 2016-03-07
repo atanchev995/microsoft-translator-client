@@ -30,8 +30,8 @@ public class GetData
 
         for (int i = 0; i < languageNames.Length; i++)
         {
-                fromLanguage.Items.Add(new ListItem(languageNames[i], languageCodes[i]));
-                toLanguage.Items.Add(new ListItem(languageNames[i], languageCodes[i]));
+            fromLanguage.Items.Add(new ListItem(languageNames[i], languageCodes[i]));
+            toLanguage.Items.Add(new ListItem(languageNames[i], languageCodes[i]));
         }
     }
 }
