@@ -11,7 +11,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     { 
         GetData fillList = new GetData();
-        fillList.FillLanguageList(ddlTranslateFrom, ddlTranslateTo);
+        if (!Page.IsPostBack)
+            fillList.FillLanguageList(ddlTranslateFrom, ddlTranslateTo);
     }
 
     GetTranslation translate = new GetTranslation();
@@ -20,7 +21,17 @@ public partial class _Default : System.Web.UI.Page
     protected void btnDetect_Click(object sender, EventArgs e)
     {
         string languageToDetect = txtInput.InnerText;
-        translate.DetectLanguage(languageToDetect, ddlTranslateFrom);
+
+        try
+        {
+            translate.DetectLanguage(languageToDetect, ddlTranslateFrom);
+        }
+        catch (Exception er)
+        {
+            string error = er.ToString();
+            lblError.Text = error;
+        }
+
         txtInput.InnerText = languageToDetect;
     }
 }

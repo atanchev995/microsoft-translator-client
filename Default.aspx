@@ -28,6 +28,9 @@
     <textarea id="txtInput" name="txtInput" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: normal; border: 2px solid #CCCCCC; resize: none; width: 500px; height: 200px; margin-right: 110px;" runat="server"></textarea>
         <asp:Button ID="btnTranslate" runat="server" Text="Translate" BackColor="#006600" BorderStyle="None" Font-Names="Segoe UI" Font-Size="X-Large" ForeColor="White" />
     <textarea id="txtOutput" name="txtOutput" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: normal; border: 2px solid #CCCCCC; resize: none; width: 500px; height: 200px; margin-left: 110px;" runat="server"></textarea>
-&nbsp;</form>
+&nbsp;<p>
+            <asp:Label ID="lblError" runat="server" Font-Names="Segoe UI" Font-Size="Medium" ForeColor="Red"></asp:Label>
+        </p>
+    </form>
     </body>
 </html>
