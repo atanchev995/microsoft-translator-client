@@ -51,4 +51,12 @@ public partial class _Default : System.Web.UI.Page
             lblError.Text = error;
         }
     }
+
+    // switch the from and to languages
+    protected void btnSwitch_Click(object sender, EventArgs e)
+    {
+        string temp = ddlTranslateFrom.SelectedValue;
+        ddlTranslateFrom.SelectedValue = ddlTranslateTo.SelectedValue;
+        ddlTranslateTo.SelectedValue = temp;
+    }
 }
