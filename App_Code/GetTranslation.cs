@@ -2,6 +2,7 @@
 
 public class GetTranslation
 {
+    private string translatedLanguage;
     GetAccessToken auth = new GetAccessToken();
     TranslatorService.LanguageServiceClient client = new TranslatorService.LanguageServiceClient();
 
@@ -20,7 +21,7 @@ public class GetTranslation
     {
         string appId = auth.GetAccessTokenString();
 
-        string translatedLanguage = client.Translate(appId, userInput, fromLanguage, toLanguage, "text/plain", "", "");
+        translatedLanguage = client.Translate(appId, userInput, fromLanguage, toLanguage, "text/plain", "", "");
 
         return translatedLanguage;
     }

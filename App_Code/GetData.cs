@@ -2,6 +2,8 @@
 
 public class GetData
 {
+    private string[] languageCodes;
+    private string[] languageNames;
     GetAccessToken auth = new GetAccessToken();
     TranslatorService.LanguageServiceClient client = new TranslatorService.LanguageServiceClient();
 
@@ -9,7 +11,7 @@ public class GetData
     public string[] GetLanguageCodes()
     {
         string appId = auth.GetAccessTokenString();
-        string[] languageCodes = client.GetLanguagesForTranslate(appId);
+        languageCodes = client.GetLanguagesForTranslate(appId);
         return languageCodes;
     }
 
@@ -17,16 +19,15 @@ public class GetData
     public string[] GetLanguageNames()
     {
         string appId = auth.GetAccessTokenString();
-        string[] languageCodes = GetLanguageCodes();
-        string[] languageNames = client.GetLanguageNames(appId, "en", languageCodes, false);
+        languageCodes = GetLanguageCodes();
+        languageNames = client.GetLanguageNames(appId, "en", languageCodes, false);
         return languageNames;
     }
 
     // Fills the dropdown lists with the languages available in the Microsoft Translator service
     public void FillLanguageList(DropDownList fromLanguage, DropDownList toLanguage)
     {
-        string[] languageCodes = GetLanguageCodes();
-        string[] languageNames = GetLanguageNames();
+        languageNames = GetLanguageNames();
 
         for (int i = 0; i < languageNames.Length; i++)
         {
